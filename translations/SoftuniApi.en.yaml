@@ -1,0 +1,5 @@
+softuni_api:
+    messages:
+        resource_delete_successfull: 'The resource is deleted successfull !!!'
+
+

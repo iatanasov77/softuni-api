@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        
+    App\Controller\AdminPanel\DefaultController:
+        tags: ['controller.service_arguments']
+
+    App\Controller\Application\DebugController:
+        arguments:
+            - '@service_container'
+        tags: ['controller.service_arguments']
+        
+    App\Controller\Application\TablaturesController:
+        tags: ['controller.service_arguments']
+        autowire: false
+        arguments:
+            - '@vs_wgp.repository.tablature'
+            - '%vs_wgp.tablatures_directory%'
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+

@@ -1,0 +1,19 @@
+# @see https://github.com/Sylius/SyliusResourceBundle/blob/master/docs/index.md
+sylius_resource:
+    # Override default settings
+    #settings:
+
+    # Configure your resources
+    resources:
+        vs_wgp.tablature:
+            driver: doctrine/orm
+            classes:
+                model:      App\Entity\Tablature
+                interface:  Sylius\Component\Resource\Model\ResourceInterface
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+        vs_wgp.tablature_file:
+            driver: doctrine/orm
+            classes:
+                model:      App\Entity\TablatureFile
+                interface:  Sylius\Component\Resource\Model\ResourceInterface
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
