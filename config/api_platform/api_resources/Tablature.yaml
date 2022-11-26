@@ -1,0 +1,139 @@
+resources:
+    App\Entity\Tablature:
+
+        collectionOperations:
+            tablatures_get:
+                method: GET
+                path: tablatures
+                normalization_context:
+                    groups: ['tablature:read']
+                    
+            latest_tablatures_get:
+                method: GET
+                path: latest-tablatures
+                normalization_context:
+                    groups: ['tablature:read']
+                
+                # Filters
+                filters:
+                    - 'tablatures.public_filter'
+                
+                # Pagination
+                pagination_enabled: true
+                pagination_client_enabled: true
+                pagination_client_items_per_page: true
+                pagination_items_per_page: 10
+                
+            my_tablatures_get:
+                method: GET
+                path: my-tablatures
+                controller: App\Controller\Api\MyTablaturesController
+                normalization_context:
+                    groups: ['tablature:read']
+                
+                # Pagination
+                pagination_enabled: true
+                pagination_client_enabled: true
+                pagination_client_items_per_page: true
+                pagination_items_per_page: 10
+                
+            my_favorites_get:
+                method: GET
+                path: my-favorites
+                controller: App\Controller\Api\MyFavoritesController
+                normalization_context:
+                    groups: ['tablature:read']
+                
+                # Pagination
+                pagination_enabled: true
+                pagination_client_enabled: true
+                pagination_client_items_per_page: true
+                pagination_items_per_page: 10
+                
+            add_to_favorites:
+                method: POST
+                path: add-to-favorites
+                controller: App\Controller\Api\AddToFavoritesController
+                normalization_context:
+                    groups: ['tablature:read']
+                
+        itemOperations:
+            tablature_get:
+                method: GET
+                path: tablatures/{id}
+                normalization_context:
+                    groups: ['tablature:read']
+            tablature_post:
+                method: POST
+                path: tablatures/new
+                controller: App\Controller\Api\CreateTablatureController
+                
+                read: false # Disable ReadListener
+                write: false
+                deserialize: false,
+                
+                normalization_context:
+                    groups: ['tablature:read']
+                denormalization_context:
+                    groups: ['tablature:create']
+                openapi_context:
+                    requestBody:
+                        content:
+                            multipart/form-data:
+                                schema:
+                                    type: object
+                                    properties:
+                                        tablature:
+                                            type: string
+                                            format: binary
+                    
+            tablature_put:
+                method: PUT
+                path: tablatures/{id}
+                controller: App\Controller\Api\EditTablatureController
+                
+                read: false # Disable ReadListener
+                write: false
+                deserialize: false,
+                
+                normalization_context:
+                    groups: ['tablature:read']
+                denormalization_context:
+                    groups: ['tablature:update']
+                openapi_context:
+                    requestBody:
+                        content:
+                            multipart/form-data:
+                                schema:
+                                    type: object
+                                    properties:
+                                        tablature:
+                                            type: string
+                                            format: binary
+            tablature_delete:
+                method: DELETE
+                path: tablatures/{id}
+                controller: App\Controller\Api\DeleteTablatureController
+                    
+        properties:
+            id:
+                identifier: true
+                writeable: false
+                required: false
+            artist:
+                writeable: true
+                required: true
+            song:
+                writeable: true
+                required: true
+            enabled:
+                writeable: true
+                
+            createdBy:
+                writeable: false
+            updatedBy:
+                writeable: false
+            createdAt:
+                writeable: false
+            updatedAt:
+                writeable: false
