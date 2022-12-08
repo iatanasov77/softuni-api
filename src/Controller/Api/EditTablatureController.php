@@ -43,9 +43,8 @@ class EditTablatureController extends AbstractController
         $formData   = $this->getFormData( $request );
         $entity     = $this->tablaturesRepository->find( $id );
         
-        file_put_contents('/tmp/api_debug', print_r($formData, true));
         if ( $formData['published'] !== null ) {
-            $entity->setEnabled( $formData['published'] );
+            $entity->setEnabled( filter_var( $formData['published'], FILTER_VALIDATE_BOOLEAN ) );
         }
         if ( $formData['artist'] !== null ) {
             $entity->setArtist( $formData['artist'] );

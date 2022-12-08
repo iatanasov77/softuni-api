@@ -54,13 +54,14 @@ class CreateTablatureController extends AbstractController
         $formData   = $this->getFormData( $request );
         $entity     = $this->tablaturesFactory->createNew();
         
-        $entity->setEnabled( $formData['published'] );
+        $entity->setEnabled( filter_var( $formData['published'], FILTER_VALIDATE_BOOLEAN ) );
         $entity->setArtist( $formData['artist'] );
         $entity->setSong( $formData['song'] );
         
         $entity->setUser( $this->getUser() );
         
         $tabFile    = $request->files->get( 'tablature' );
+        //var_dump( $tabFile->getClientOriginalName() ); die;
         if ( $tabFile ) {
             $this->createTablature( $entity, $tabFile );
         } else {
