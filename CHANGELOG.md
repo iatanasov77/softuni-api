@@ -1,3 +1,10 @@
+1.1.0	|	Release date: **08.12.2022**
+============================================
+* Bug-Fixes:
+  - Fix Create/Edit Tablatures Controllers to Cast String to Boolean for Published Property.
+  - Fix Entity TablatureFile .
+
+
 1.0.1	|	Release date: **26.11.2022**
 ============================================
 * Bug-Fixes:
