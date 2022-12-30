@@ -14,6 +14,7 @@ App\Entity\Tablature:
             
         user:
             groups: ['tablature:read']
+        
         createdBy:
             groups: ['tablature:read']
         updatedBy:

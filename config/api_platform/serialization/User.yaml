@@ -1,5 +1,7 @@
 App\Entity\UserManagement\User:
     attributes:
+        id:
+            groups: ['tablature:read']
         username:
             groups: ['tablature:read']
         info:
@@ -7,6 +9,8 @@ App\Entity\UserManagement\User:
 
 App\Entity\UserManagement\UserInfo:
     attributes:
+        id:
+            groups: ['tablature:read']
         firstName:
             groups: ['tablature:read']
         lastName:
