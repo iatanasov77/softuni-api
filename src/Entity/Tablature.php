@@ -52,7 +52,7 @@ class Tablature implements ResourceInterface
     protected $enabled = true;
     
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\UserManagement\User", inversedBy="tablatures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\UserManagement\User", inversedBy="tablatures", fetch="EAGER")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
