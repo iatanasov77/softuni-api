@@ -1,3 +1,9 @@
+1.3.0	|	Release date: **06.03.2023**
+============================================
+* New Features:
+  - Update Vankosoft API Bundle.
+
+
 1.2.0	|	Release date: **30.12.2022**
 ============================================
 * New Features:
