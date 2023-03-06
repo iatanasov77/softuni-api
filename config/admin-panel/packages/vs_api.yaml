@@ -9,4 +9,7 @@ imports:
 vs_api:
     enabled: true
 
+    title: 'SoftUni API'
+    description: 'API for SoftUni FrontEnd Projects'
+    version: '0.0.1'  # The version of the API.
 
