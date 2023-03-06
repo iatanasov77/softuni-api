@@ -4,6 +4,7 @@ imports:
     - { resource: "@VSApiBundle/Resources/config/app/serializer.yaml" }
     - { resource: "@VSApiBundle/Resources/config/app/lexik_jwt_authentication.yaml" }
     - { resource: "@VSApiBundle/Resources/config/app/nelmio_cors.yaml" }
+    - { resource: "@VSApiBundle/Resources/config/app/mercure.yaml" }
 
 
 vs_api:
